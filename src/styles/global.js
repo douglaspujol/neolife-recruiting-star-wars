@@ -22,6 +22,7 @@ export default createGlobalStyle`
 
   body, input, button{
     font:20px 'Overpass', sans-serif;
+    color:#fff;
   }
 
   a {

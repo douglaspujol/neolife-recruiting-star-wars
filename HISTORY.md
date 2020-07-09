@@ -24,8 +24,8 @@ Abaixo segue cada etapa relevante comentada e as tecnlogias utilizadas.
   para a definição das props.
   Estas foram as principais ações finalizadas.
 
-  - Criação da pag Default
-  - Pags Home e Planets
+  - Criação da page Default
+  - Pages Home e Planets
   - Estilização Global
   - Roteamento
 
