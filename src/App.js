@@ -1,8 +1,16 @@
 import React from 'react';
+import { BrowserRouter } from 'react-router-dom';
+import GlobalStyle from './styles/global';
+
+// Rotas
+import Routes from './routes';
 
 function App() {
   return (
-    <h1>Hello NeoLife</h1>
+    <BrowserRouter>
+      <Routes />
+      <GlobalStyle />
+    </BrowserRouter>
   );
 }
 
