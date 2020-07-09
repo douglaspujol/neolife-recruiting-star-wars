@@ -1,7 +1,7 @@
-/* eslint-disable import/no-dynamic-require */
 import React from 'react';
+import Planet from '../../components/Planet/index';
 
-import { Container, GridCards, Planet } from './styles';
+import { Container, GridCards } from './styles';
 
 function Main() {
   const planetsId = [
@@ -31,8 +31,7 @@ function Main() {
       <GridCards>
         {planetsId.map((e) => (
           <li key={e}>
-            <Planet img={require(`../../assets/planets/${e}.jpg`)} />
-            <span>{e}</span>
+            <Planet id={e} />
           </li>
         ))}
       </GridCards>

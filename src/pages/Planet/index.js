@@ -1,11 +1,16 @@
 /* eslint-disable jsx-a11y/alt-text */
+/* eslint-disable import/no-dynamic-require */
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import Name from '../../components/Name/index';
 
 import { Container, InfoPlanet, Population, Movies } from './styles';
 
-function Planet() {
+export default function Planet({ match }) {
+  const { id } = match.params;
+
   return (
     <Container>
       <nav>
@@ -18,7 +23,7 @@ function Planet() {
         </ul>
       </nav>
       <div>
-        <img src={require(`../../assets/planets/2.jpg`)} />
+        <img src={require(`../../assets/planets/${id}.jpg`)} />
         <InfoPlanet>
           <span>PLANET NAME</span>
           <p>POPULATION: 100</p>
@@ -31,15 +36,15 @@ function Planet() {
           <p>CLIMATE: 100</p>
           <Population>
             <span>Habitantes</span>
-            <p>- Nome</p>
-            <p>- Nome</p>
-            <p>- Nome</p>
+            <li>
+              <Name id={id}> - Nome</Name>
+            </li>
           </Population>
           <Movies>
             <span>Filmes</span>
-            <p>- Nome</p>
-            <p>- Nome</p>
-            <p>- Nome</p>
+            <li>
+              <Name id={id}> - Nome</Name>
+            </li>
           </Movies>
         </InfoPlanet>
       </div>
@@ -47,4 +52,10 @@ function Planet() {
   );
 }
 
-export default Planet;
+Planet.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }).isRequired,
+};

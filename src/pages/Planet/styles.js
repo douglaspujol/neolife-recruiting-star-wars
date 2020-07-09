@@ -27,13 +27,13 @@ export const InfoPlanet = styled.div`
     font-size: 33px;
   }
 `;
-export const Population = styled.div`
+export const Population = styled.ul`
   span {
     margin-bottom: 16px;
     font-size: 33px;
   }
 `;
-export const Movies = styled.div`
+export const Movies = styled.ul`
   span {
     margin-bottom: 16px;
     font-size: 33px;

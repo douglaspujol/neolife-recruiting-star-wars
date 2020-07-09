@@ -6,6 +6,7 @@ Abaixo segue cada etapa relevante comentada e as tecnlogias utilizadas.
  - [Start](###start)
  - [Config](###config)
  - [Routes](###routes-e-global-styles)
+ - [Componentes e layouts](###components-e-layouts)
 
 
 
@@ -29,5 +30,8 @@ Abaixo segue cada etapa relevante comentada e as tecnlogias utilizadas.
   - Estilização Global
   - Roteamento
 
+  ### Componentes e layouts
+
+  Neste momento da aplicação. Terminei de estilizar as duas páginas e criei todos os componentes necessários.
 
 
