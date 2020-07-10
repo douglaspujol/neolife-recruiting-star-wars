@@ -7,6 +7,7 @@ Abaixo segue cada etapa relevante comentada e as tecnlogias utilizadas.
  - [Config](###config)
  - [Routes](###routes-e-global-styles)
  - [Componentes e layouts](###components-e-layouts)
+ - [Final do projeto](###end)
 
 
 
@@ -34,4 +35,7 @@ Abaixo segue cada etapa relevante comentada e as tecnlogias utilizadas.
 
   Neste momento da aplicação. Terminei de estilizar as duas páginas e criei todos os componentes necessários.
 
+  ### End
+
+  Projeto concluído. Os components possuem states próprios, e todas as requisições para a API de StarWars foram finalizadas.
 

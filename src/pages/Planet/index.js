@@ -1,15 +1,54 @@
 /* eslint-disable jsx-a11y/alt-text */
 /* eslint-disable import/no-dynamic-require */
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import api from '../../services/api';
 import Name from '../../components/Name/index';
+import Title from '../../components/Title/index';
 
 import { Container, InfoPlanet, Population, Movies } from './styles';
 
 export default function Planet({ match }) {
   const { id } = match.params;
+  const [planet, setPlanet] = useState({});
+  const [names, setNames] = useState([]);
+  const [movies, setMovies] = useState([]);
+
+  useEffect(() => {
+    async function searchPlanet() {
+      const response = await api.get(`/planets/${id}`);
+      const {
+        name,
+        rotation_period,
+        orbital_period,
+        diameter,
+        climate,
+        gravity,
+        terrain,
+        surface_water,
+        population,
+        residents,
+        films,
+      } = response.data;
+      setPlanet({
+        name,
+        rotation_period,
+        orbital_period,
+        diameter,
+        climate,
+        gravity,
+        terrain,
+        surface_water,
+        population,
+      });
+      setNames(residents);
+      setMovies(films);
+    }
+    searchPlanet();
+  }, [id]);
 
   return (
     <Container>
@@ -19,32 +58,36 @@ export default function Planet({ match }) {
           <li>
             <Link to="/">Planetas/</Link>
           </li>
-          <li>Planet Name</li>
+          <li>{planet.name}</li>
         </ul>
       </nav>
       <div>
         <img src={require(`../../assets/planets/${id}.jpg`)} />
         <InfoPlanet>
-          <span>PLANET NAME</span>
-          <p>POPULATION: 100</p>
-          <p>ROTATION PERIOD: 10</p>
-          <p>ORBITAL PERIOD: 100</p>
-          <p>DIAMETER: 100</p>
-          <p>GRAVITY: 100</p>
-          <p>TERRAIN: 100</p>
-          <p>SURFACE WATER: 100</p>
-          <p>CLIMATE: 100</p>
+          <span>{planet.name}</span>
+          <p>POPULATION: {planet.population}</p>
+          <p>ROTATION PERIOD: {planet.rotation_period}</p>
+          <p>ORBITAL PERIOD: {planet.orbital_period}</p>
+          <p>DIAMETER: {planet.diameter}</p>
+          <p>GRAVITY: {planet.gravity}</p>
+          <p>TERRAIN: {planet.terrain}</p>
+          <p>SURFACE WATER: {planet.surface_water}</p>
+          <p>CLIMATE: {planet.climate}</p>
           <Population>
             <span>Habitantes</span>
-            <li>
-              <Name id={id}> - Nome</Name>
-            </li>
+            {names.map((name) => (
+              <li key={name}>
+                <Name url={name} />
+              </li>
+            ))}
           </Population>
           <Movies>
             <span>Filmes</span>
-            <li>
-              <Name id={id}> - Nome</Name>
-            </li>
+            {movies.map((name) => (
+              <li key={name}>
+                <Title url={name} />
+              </li>
+            ))}
           </Movies>
         </InfoPlanet>
       </div>

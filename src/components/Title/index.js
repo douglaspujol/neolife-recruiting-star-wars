@@ -3,14 +3,14 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 
-export default function Name({ url }) {
+export default function Title({ url }) {
   const [info, setInfo] = useState('');
   useEffect(() => {
     async function getName() {
       const response = await fetch(url);
       const data = await response.json();
-      const { name } = data;
-      setInfo(name);
+      const { title } = data;
+      setInfo(title);
     }
     getName();
   }, []);
@@ -22,6 +22,6 @@ export default function Name({ url }) {
   );
 }
 
-Name.propTypes = {
+Title.propTypes = {
   url: PropTypes.string,
 };
